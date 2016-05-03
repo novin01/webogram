@@ -19,8 +19,139 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+      <p><a href="https://waffle.io/zhukov/webogram"><img src="https://badge.waffle.io/zhukov/webogram.png?label=ready&amp;title=Ready" alt="Stories in Ready"></a></p>
+
+<h2>
+<a id="webogram--telegram-web-app" class="anchor" href="#webogram--telegram-web-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://web.telegram.org">Webogram</a> — Telegram Web App</h2>
+
+<p>Telegram offers great <a href="https://www.telegram.org">apps for mobile communication</a>. It is based on the <a href="https://core.telegram.org/mtproto">MTProto protocol</a> and has an <a href="https://core.telegram.org/api">Open API</a>. I personally like Telegram for its speed and cloud-support (that makes a web app possible, unlike in the case of WA and others).</p>
+
+<p>MTProto data can be carried over HTTP (SSL is also supported), so this project is my take at creating one.</p>
+
+<p>That said, I'm using this app myself and I'd like to share its sources, so anyone can contribute to the development. Any help is welcome!</p>
+
+<h3>
+<a id="interface" class="anchor" href="#interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interface</h3>
+
+<p>Here are some screenshots of the interface:</p>
+
+<p><img src="/app/img/screenshot1.png" alt="Sample screenshot 1">
+<img src="/app/img/screenshot2.png" alt="Mobile screenshot 2">
+<img src="/app/img/screenshot3.png" alt="Mobile screenshot 3"></p>
+
+<h3>
+<a id="unsupported-at-the-moment" class="anchor" href="#unsupported-at-the-moment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unsupported at the moment</h3>
+
+<ul>
+<li>Secret chats</li>
+<li>Black list</li>
+<li>...</li>
+</ul>
+
+<h3>
+<a id="maintained-locations" class="anchor" href="#maintained-locations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Maintained locations</h3>
+
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>URL</th>
+<th align="right">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Online Web-version (hosted on Telegram servers)</td>
+<td><a href="https://web.telegram.org/">https://web.telegram.org/</a></td>
+<td align="right">hosted</td>
+</tr>
+<tr>
+<td>Online Web-version (hosted on GitHub pages)</td>
+<td><a href="https://zhukov.github.io/webogram">https://zhukov.github.io/webogram</a></td>
+<td align="right">hosted</td>
+</tr>
+<tr>
+<td>Chrome Web Store</td>
+<td><a href="https://chrome.google.com/webstore/detail/telegram/clhhggbfdinjmjhajaheehoeibfljjno">https://chrome.google.com/webstore/detail/telegram/ clhhggbfdinjmjhajaheehoeibfljjno</a></td>
+<td align="right">packed</td>
+</tr>
+<tr>
+<td>Firefox &amp; FirefoxOS Marketplace</td>
+<td><a href="https://marketplace.firefox.com/app/telegram">https://marketplace.firefox.com/app/telegram</a></td>
+<td align="right">packed</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Hosted version</strong>: the app is downloaded via HTTPS as a usual website. Will be available offline due to application cache.</p>
+
+<p><strong>Packed version</strong>: the app is downloaded at once in a package via HTTPS. The package is updated less frequently than the Web-version.</p>
+
+<p>All of the apps above are submitted and maintained by <a href="https://github.com/zhukov">@zhukov</a>, so feel free to use them and report bugs <a href="https://github.com/zhukov/webogram/issues">here</a>. Please do not report bugs which are only reproducible in different locations.</p>
+
+<h2>
+<a id="technical-details" class="anchor" href="#technical-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technical details</h2>
+
+<p>The app is based on the AngularJS JavaScript framework, and written in pure JavaScript. jQuery is used for DOM manipulations, and Bootstrap as the CSS-framework.</p>
+
+<h3>
+<a id="running-locally" class="anchor" href="#running-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running locally</h3>
+
+<p>The project repository is based on angularjs-seed and includes gulp tasks, so it's easy to launch the app locally on your desktop.
+Install <a href="http://nodejs.org/">node.js</a> and run the following commands in the project directory</p>
+
+<pre><code>sudo npm install -g gulp
+npm install
+</code></pre>
+
+<p>This will install all the needed dependencies.</p>
+
+<h4>
+<a id="running-web-server" class="anchor" href="#running-web-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running web-server</h4>
+
+<p>Just run <code>gulp watch</code> to start the web server and the livereload task.
+Open http://localhost:8000/app/index.html in your browser.</p>
+
+<h4>
+<a id="running-as-chrome-packaged-app" class="anchor" href="#running-as-chrome-packaged-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running as Chrome Packaged App</h4>
+
+<p>To run this application in Google Chrome as a packaged app, open this URL (in Chrome): <code>chrome://extensions/</code>, then tick "Developer mode" and press "Load unpacked extension...". Select the downloaded <code>app</code> folder and Webogram should appear in the list.</p>
+
+<p>Run <code>gulp watch</code> to watch for file changes and automatically rebuild the app.</p>
+
+<h4>
+<a id="running-as-firefox-os-app" class="anchor" href="#running-as-firefox-os-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running as Firefox OS App</h4>
+
+<p>To run this application in Firefox as a packaged app, open "Menu" -&gt; "Developer" -&gt; "WebIDE" (or hit <code>Shift + F8</code>). Choose "Open packaged app" from the Project menu and select the <code>app</code> folder.</p>
+
+<p>Run <code>gulp watch</code> to watch for file changes and automatically rebuild the app.</p>
+
+<h3>
+<a id="third-party-libraries" class="anchor" href="#third-party-libraries" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Third party libraries</h3>
+
+<p>Besides the frameworks mentioned above, other libraries are used for protocol and UI needs. Here is the short list:</p>
+
+<ul>
+<li><a href="http://www-cs-students.stanford.edu/%7Etjw/jsbn/">JSBN</a></li>
+<li><a href="https://code.google.com/p/crypto-js/">CryptoJS</a></li>
+<li><a href="https://github.com/imaya/zlib.js">zlib.js</a></li>
+<li><a href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a></li>
+<li><a href="https://github.com/diy/jquery-emojiarea">jQuery Emojiarea</a></li>
+<li><a href="https://github.com/jamesflorentino/nanoScrollerJS">nanoScrollerJS</a></li>
+<li><a href="https://github.com/github/gemoji">gemoji</a></li>
+<li><a href="https://github.com/iamcal/emoji-data">emoji-data</a></li>
+</ul>
+
+<p>Many thanks to all these libraries' authors and contributors. A detailed list with descriptions and licenses is available <a href="/app/vendor">here</a>.</p>
+
+<h3>
+<a id="licensing" class="anchor" href="#licensing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licensing</h3>
+
+<p>The source code is licensed under GPL v3. License is available <a href="/LICENSE">here</a>.</p>
+
+<h3>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="CONTRIBUTING.md">Contribute</a>
+</h3>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/novin01/webogram">Webogram</a> is maintained by <a href="https://github.com/novin01">novin01</a>.</span>
